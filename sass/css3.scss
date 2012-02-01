@@ -1,0 +1,54 @@
+/* (c) 2011 Motion Média */
+
+// Extensions
+
+.clearfix { 
+    zoom: 1;
+    &:before, &:after {
+        content:'.';
+        display:block;
+        overflow:hidden;
+        visibility:hidden;
+        font-size:0;
+        line-height:0;
+        width:0;
+        height:0;
+    }
+    &:after { clear:both; }
+}
+
+// Mixins
+
+@mixin opacity($val) {
+    opacity: $val/100;
+    filter: alpha(opacity=$val);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$val})";
+    -moz-opacity: $val/100;
+    -khtml-opacity: $val/100;
+}
+
+@mixin box-shadow($top: 1px, $left: 1px, $size: 4px, $color: #000) {
+    -moz-box-shadow: $top $left $size $color;
+    -webkit-box-shadow: $top $left $size $color;
+    -o-box-shadow: $top $left $size $color;
+    box-shadow: $top $left $size $color;
+}
+
+@mixin background-gradient($start: #ffffff, $end=#000000) {
+    background: $start;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$start}', EndColorStr='#{$end}'); 
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$start}', EndColorStr='#{$end}')";
+    -pie-background: linear-gradient(top, $start, $end);
+    background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+    background: -moz-linear-gradient(top,  $start,  $end);
+}
+
+@mixin border-radius($top: 8px, $left: false, $bottom: false, $right: false) {
+  @if($left == false) { $left: $top; }
+  @if($bottom == false) { $bottom: $top; }
+  @if($right == false) { $right: $left; }
+  -moz-border-radius: $top $left $bottom $right;
+  -webkit-border-radius: $top $left $bottom $right;
+  -o-border-radius: $top $left $bottom $right;
+  border-radius: $top $left $bottom $right;
+}
