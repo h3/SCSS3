@@ -34,7 +34,7 @@
     box-shadow: $top $left $size $color;
 }
 
-@mixin background-gradient($start: #ffffff, $end=#000000) {
+@mixin background-gradient($start: #ffffff, $end: #000000) {
     background: $start;
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$start}', EndColorStr='#{$end}'); 
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$start}', EndColorStr='#{$end}')";
