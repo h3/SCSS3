@@ -1,0 +1,83 @@
+@import "css3.scss";
+
+$font: Arial, sans-serif;
+
+html {
+    font-family: $font;
+}
+
+.test-row {
+    @extend .clearfix;
+}
+
+.test-block {
+    width: 100px;
+    height: 100px;
+    background: #bbb;
+    border: 1px solid #666;
+    float: left;
+    margin-right: 10px;
+}
+
+.test-border-radius {
+    @extend .test-block;
+    &.all    { @include border-radius(10px); }
+    &.top    { @include border-radius(10px, 10px, 0, 0); }
+    &.left   { @include border-radius(0, 0, 10px, 10px); }
+    &.right  { @include border-radius(10px, 0, 0, 10px); }
+    &.bottom { @include border-radius(0, 10px, 10px, 0); }
+}
+
+.test-opacity {
+    @extend .test-block;
+    &.full   { @include opacity(100); }
+    &.p75    { @include opacity(75); }
+    &.p50    { @include opacity(50); }
+    &.p25    { @include opacity(25); }
+    &.p0     { @include opacity(0); }
+}
+
+.test-box-shadow {
+    @extend .test-block;
+    &.t1   { @include box-shadow(1px, 1px, 4px, #000); }
+    &.t2   { @include box-shadow(2px, 2px, 8px, #c30); }
+    &.t3   { @include box-shadow(3px, 3px, 12px, #269); }
+    &.t4   { @include box-shadow(4px, 4px, 16px, #f69); }
+    &.t5   { @include box-shadow(5px, 5px, 20px, #ca4); }
+}
+
+.test-background-gradient {
+    @extend .test-block;
+    &.t1   { @include background-gradient(#000, #fff); }
+    &.t2   { @include background-gradient(#fff, #000); }
+    &.t3   { @include background-gradient(#000, #fff, left); }
+    &.t4   { @include background-gradient(#000, #fff, right); }
+    &.t5   { @include background-gradient(#c30, #269, top, #f60); }
+}
+
+.test-rotate {
+    @extend .test-block;
+    &.t1   { @include rotate(0deg); }
+    &.t2   { @include rotate(72deg); }
+    &.t3   { @include rotate(144deg); }
+    &.t4   { @include rotate(216deg); }
+    &.t5   { @include rotate(360deg); }
+}
+
+.test-scale {
+    @extend .test-block;
+    &.t1   { @include scale(0.5); }
+    &.t2   { @include scale(0.8); }
+    &.t3   { @include scale(1); }
+    &.t4   { @include scale(1.2); }
+    &.t5   { @include scale(1.5); }
+}
+
+.test-transform-3d {
+    @extend .test-block;
+    &.t1   { @include transform-3d(0deg, 100); }
+    &.t2   { @include transform-3d(180deg, 300); }
+    &.t3   { @include transform-3d(360deg, 300); }
+    &.t4   { @include transform-3d(120deg, 300); }
+    &.t5   { @include transform-3d(80deg, 300); }
+}
